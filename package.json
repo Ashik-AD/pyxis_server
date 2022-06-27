@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/Ashik-AD/pyxis.git"
+    "url": "git+ssh://git@github.com/Ashik-AD/pyxis_server.git"
   },
   "author": "Ashik Dhimal",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Ashik-AD/pyxis/issues"
+    "url": "https://github.com/Ashik-AD/pyxis_server/issues"
   },
-  "homepage": "https://github.com/Ashik-AD/pyxis#readme",
+  "homepage": "https://github.com/Ashik-AD/pyxis_server#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.1",

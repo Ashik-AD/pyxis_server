@@ -72,6 +72,12 @@ passportConfig();
 const authenticate = passport.authenticate('jwt', { session: false });
 
 const routes = (app) => {
+  app.get("/", (req, res) => {
+    res.send("<h1>Welcome to the pyxis</h1>")
+  })
+  app.get("/favicon.ico", (req, res, next) => {
+    res.send('<h1>No favicon</h1>')
+  })
   app.post('/signup', signUp);
   app.post('/login', signIn);
   app.post('/account/update-email', authenticate, updateEmail);
