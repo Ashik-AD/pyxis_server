@@ -1,7 +1,5 @@
-import { noimageUrl } from './noimageUrl.js';
 
-
-export const forMovie = (arrayLists) => {
+const forMovie = (arrayLists) => {
   if (!arrayLists) return null;
   return arrayLists.map((el) => ({
     id: el.id,
@@ -14,7 +12,7 @@ export const forMovie = (arrayLists) => {
   }));
 };
 
-export const forTv = (arrayLists) => {
+const forTv = (arrayLists) => {
   if (!arrayLists) return null;
   return arrayLists.map((el) => ({
     id: el.id,
@@ -26,7 +24,7 @@ export const forTv = (arrayLists) => {
     release_date: el.first_air_date,
   }));
 };
-export const getNecessaryFiled = (arrayLists) => {
+const getNecessaryFiled = (arrayLists) => {
   if (!arrayLists) return null;
   return arrayLists.map((el) => ({
     id: el.id,
@@ -40,7 +38,7 @@ export const getNecessaryFiled = (arrayLists) => {
 };
 
 
-export const extractCreditInfo = (result, type) => {
+const extractCreditInfo = (result, type) => {
   if (type === 'cast') {
     return result.cast;
   }
@@ -50,3 +48,9 @@ export const extractCreditInfo = (result, type) => {
   const { cast, crew } = result;
   return { cast, crew };
 };
+module.exports = {
+  forMovie,
+  forTv,
+  extractCreditInfo,
+  getNecessaryFiled,
+}

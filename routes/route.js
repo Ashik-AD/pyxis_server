@@ -1,13 +1,14 @@
-import {
+const auth = require('../controller/auth.js');
+const  {
   signUp,
   signIn,
   updateEmail,
   changePassword,
   deleteAccountPermanent,
-} from '../controller/auth.js';
-import passport from 'passport';
-import passportConfig from '../config/passport.config.js';
-import User from '../model/user.js';
+} = auth;
+const passport = require('passport');
+const  passportConfig =  require('../config/passport.config.js');
+const User = require('../model/user.js');
 // import { allCountry, searchCountry } from '../controller/country.js';
 // import {
 //   latestMovie,
@@ -64,7 +65,7 @@ import User from '../model/user.js';
 //   renamePlaylist,
 //   searchLiked,
 // } from '../controller/userMovie.js';
-import { generateToken } from '../model/userToken.js';
+const { generateToken } = require('../model/userToken.js');
 
 // Init passport middleware
 passportConfig();
@@ -181,4 +182,4 @@ const routes = (app) => {
   // app.delete('/:uid/watch-list/remove/:item_id', authenticate, removeWatchList);
   // app.get('/:uid/count/:table', authenticate, countItems);
 };
-export default routes;
+module.exports = routes;

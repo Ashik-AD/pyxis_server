@@ -1,6 +1,6 @@
-import mdb from "../config/movieDb.config.js";
+const mdb =  require("../config/movieDb.config.js");
   // Movie / Single trailer
-  export const singleTrailer = async (req, res, next) => {
+  module.exports.singleTrailer = async (req, res, next) => {
     try {
       const { id, type } = req.params;
       if (type !== 'movie' && type !== 'tv') {

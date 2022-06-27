@@ -1,6 +1,6 @@
-import mdb from "../config/movieDb.config.js";
+const mdb = require("../config/movieDb.config.js");
 
-export const movieAndTvGenres = async (req, res, next) => {
+const movieAndTvGenres = async (req, res, next) => {
     try {
       const mv = await mdb.genreMovieList();
       const tv = await mdb.genreTvList();
@@ -9,3 +9,4 @@ export const movieAndTvGenres = async (req, res, next) => {
       res.status(400).send('Something went wrong');
     }
 }
+module.exports = movieAndTvGenres

@@ -1,6 +1,7 @@
-import User from '../model/user.js';
-import generateId from '../utils/generateId.js';
-export const createPlaylist = async (req, res) => {
+const User = require('../model/user.js');
+const generateId = requre('../utils/generateId.js');
+class UserMovie {
+ createPlaylist = async (req, res) => {
   const uid = req.params.uid;
   const { playlistName, description } = req.body.data;
   try {
@@ -27,7 +28,7 @@ export const createPlaylist = async (req, res) => {
   }
 };
 
-export const getPlaylist = async (req, res, next) => {
+ getPlaylist = async (req, res, next) => {
   const uid = req.params.uid;
   try {
     const playlists = await User.playlist.all(uid);
@@ -38,7 +39,7 @@ export const getPlaylist = async (req, res, next) => {
   }
 };
 
-export const renamePlaylist = async (req, res, next) => {
+ renamePlaylist = async (req, res, next) => {
   try {
     const uid = req.params.uid;
     const { playlist_id, title, description } = req.body.data;
@@ -58,7 +59,7 @@ export const renamePlaylist = async (req, res, next) => {
   }
 };
 
-export const removePlaylist = async (req, res, next) => {
+ removePlaylist = async (req, res, next) => {
   const {uid, collection_id} = req.params;
   try {
     await User.playlist.remove({
@@ -72,7 +73,7 @@ export const removePlaylist = async (req, res, next) => {
   }
 };
 
-export const addPlaylistItem = async (req, res, next) => {
+ addPlaylistItem = async (req, res, next) => {
   const uid = req.params.uid;
   try {
     const { data } = req.body;
@@ -83,7 +84,7 @@ export const addPlaylistItem = async (req, res, next) => {
   }
 };
 
-export const getPlaylistItems = async (req, res, next) => {
+ getPlaylistItems = async (req, res, next) => {
   const { uid, playlist_id } = req.params;
   try {
     const items = await User.playlist.allItems({ uid, playlist_id });
@@ -94,7 +95,7 @@ export const getPlaylistItems = async (req, res, next) => {
   }
 };
 
-export const removePlaylistItem = async (req, res, next) => {
+ removePlaylistItem = async (req, res, next) => {
   const { uid } = req.params;
   try {
     const data = req.body;
@@ -113,7 +114,7 @@ export const removePlaylistItem = async (req, res, next) => {
   }
 };
 
-export const removePlaylistItemAll = async (req, res, next) => {
+ removePlaylistItemAll = async (req, res, next) => {
   const {uid, collection_id} = req.params;
   try {
     const remove = await User.playlist.removeAllItem({uid, playlist_id: collection_id});
@@ -130,7 +131,7 @@ export const removePlaylistItemAll = async (req, res, next) => {
   }
 }
 
-export const getLiked = async (req, res, next) => {
+ getLiked = async (req, res, next) => {
   try {
     const uid = req.params.uid;
     const likedItems = await User.liked.all(uid);
@@ -141,7 +142,7 @@ export const getLiked = async (req, res, next) => {
   }
 };
 
-export const getLikedWithLimit = async (req, res, next) => {
+ getLikedWithLimit = async (req, res, next) => {
   try {
     const { uid, liked_id, limit } = req.params;
     const likedItems = await User.liked.allWithLimit({ uid, liked_id, limit });
@@ -152,7 +153,7 @@ export const getLikedWithLimit = async (req, res, next) => {
   }
 };
 
-export const addLike = async (req, res, next) => {
+ addLike = async (req, res, next) => {
   try {
     const uid = req.params.uid;
     const {
@@ -182,7 +183,7 @@ export const addLike = async (req, res, next) => {
   }
 };
 
-export const removeLike = async (req, res, next) => {
+ removeLike = async (req, res, next) => {
   try {
     const { likedId } = req.body.data;
     const uid = req.params.uid;
@@ -202,7 +203,7 @@ export const removeLike = async (req, res, next) => {
   }
 };
 
-export const searchLiked = async (req, res, next) => {
+ searchLiked = async (req, res, next) => {
   try {
     const { uid, item_id } = req.body.data;
     const search = await User.liked.find({ uid, likedId: item_id });
@@ -213,7 +214,7 @@ export const searchLiked = async (req, res, next) => {
 };
 
 // Watch list
-export const addWatchList = async (req, res, next) => {
+ addWatchList = async (req, res, next) => {
   try {
     const { uid } = req.params;
     const { data } = req.body;
@@ -231,7 +232,7 @@ export const addWatchList = async (req, res, next) => {
   }
 };
 
-export const getWatchList = async (req, res, next) => {
+ getWatchList = async (req, res, next) => {
   try {
     const { uid } = req.params;
     const watchLists = await User.watchList.all(uid);
@@ -242,7 +243,7 @@ export const getWatchList = async (req, res, next) => {
   }
 };
 
-export const getWatchListLimit = async (req, res, next) => {
+ getWatchListLimit = async (req, res, next) => {
   try {
     const { uid, limit } = req.params;
     const ls = await User.watchList.withLimit({ uid, limit });
@@ -253,7 +254,7 @@ export const getWatchListLimit = async (req, res, next) => {
   }
 };
 
-export const removeWatchList = async (req, res, next) => {
+ removeWatchList = async (req, res, next) => {
   try {
     const { uid, item_id } = req.params;
     const rem = await User.watchList.remove({ uid, item_key: item_id }); // return affected row count
@@ -268,7 +269,7 @@ export const removeWatchList = async (req, res, next) => {
   }
 };
 
-export const countItems = async (req, res, next) => {
+ countItems = async (req, res, next) => {
   try {
     const { uid, table } = req.params;
     let cnt;
@@ -288,3 +289,6 @@ export const countItems = async (req, res, next) => {
     console.log(error);
   }
 };
+}
+const userMovie = new UserMovie();
+module.exports = userMovie;

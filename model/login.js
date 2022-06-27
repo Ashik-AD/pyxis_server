@@ -1,12 +1,12 @@
-import bcrypt from 'bcryptjs';
-import User from './user.js';
-import {
+const bcrypt =require('bcryptjs');
+const User = require('./user.js');
+const {
   validateEmail,
   validatePassword,
   validateEmpty,
-} from '../utils/validateInput.js';
-import fieldLists from '../db/fieldLists.js';
-import { generateToken } from './userToken.js';
+} =  require('../utils/validateInput.js');
+const fieldLists = require('../db/fieldLists.js');
+const { generateToken } = require('./userToken.js');
 
 const res = (status, msg, code) => ({
   status: status,
@@ -63,4 +63,4 @@ const handleLogin = async ({ email, password }) => {
   };
 };
 
-export default handleLogin;
+module.exports = handleLogin;

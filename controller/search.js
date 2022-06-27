@@ -1,7 +1,7 @@
-import mdb from "../config/movieDb.config.js";
-import { getNecessaryFiled } from '../utils/normalized.js';
+const mdb = require("../config/movieDb.config.js");
+const { getNecessaryFiled } = require('../utils/normalized.js');
 
-export const searchAll = async (req, res, next) => {
+const searchAll = async (req, res, next) => {
     try {
       const { key } = req.params;
       const { results, total_pages, page } = await mdb.searchMulti({
@@ -73,3 +73,10 @@ export const searchAll = async (req, res, next) => {
       res.status(400).send('Something went wrong');
     }
   };
+
+  module.exports = {
+    discoverMovieTvByGenres,
+    searchAll,
+    searchForCollection,
+    searchForPeople
+  }

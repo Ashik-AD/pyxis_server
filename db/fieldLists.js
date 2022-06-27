@@ -33,4 +33,4 @@ const fieldLists = {
   itemKey: 'item_key',
   avg_vote: 'average_vote',
 };
-export default fieldLists;
+module.exports = fieldLists;

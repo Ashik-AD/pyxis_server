@@ -1,5 +1,3 @@
-import { v4 as uuidV4 } from 'uuid';
-
-const generateId = () => uuidV4().toString().replaceAll('-', '');
-
-export default generateId;
+const uuid = require('uuid');
+const generateId = () => uuid.v4().toString().replaceAll('-', '');
+module.exports = generateId

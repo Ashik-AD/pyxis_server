@@ -1,6 +1,6 @@
-import mdb from "../config/movieDb.config.js";
+const mdb = require("../config/movieDb.config.js");
 
-export const personDetails = async (req, res, next) => {
+module.exports.personDetails = async (req, res, next) => {
     try {
       const { person_id } = req.params;
       const details = await mdb.personInfo({ id: person_id });
@@ -36,4 +36,3 @@ export const personDetails = async (req, res, next) => {
       console.log(err.response);
     }
   };
-  

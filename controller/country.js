@@ -1,6 +1,6 @@
-import CountryList from '../model/countryList.js';
+const CountryList = require('../model/countryList.js');
 
-export const allCountry = async (req, res, next) => {
+const allCountry = async (req, res, next) => {
   try {
     const list = await (await CountryList.getAll()).sort();
     res.send(list);
@@ -9,7 +9,7 @@ export const allCountry = async (req, res, next) => {
   }
 };
 
-export const searchCountry = async (req, res, next) => {
+const searchCountry = async (req, res, next) => {
   try {
     const searchToken = req.params.c_name;
     const result = await CountryList.searchCountry(searchToken);
@@ -19,3 +19,8 @@ export const searchCountry = async (req, res, next) => {
     console.log(err);
   }
 };
+
+module.exports = {
+  searchCountry,
+  allCountry
+}

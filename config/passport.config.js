@@ -1,9 +1,9 @@
-import passport from 'passport';
-import { ExtractJwt, Strategy as JwtStrategy } from 'passport-jwt';
-import dotenv from 'dotenv';
+const passport = require('passport');
+const { ExtractJwt, Strategy } = require('passport-jwt');
+const dotenv = require('dotenv');
 dotenv.config();
 
-import User from '../model/user.js';
+const User = require('../model/user.js');
 const passportConfig = () => {
   const opt = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -11,7 +11,7 @@ const passportConfig = () => {
   };
 
   passport.use(
-    new JwtStrategy(opt, async (jwt_payload, done) => {
+    new Strategy(opt, async (jwt_payload, done) => {
       const user = await User.findById(jwt_payload.sub);
       if (!user) {
         return done(null, false);
@@ -20,4 +20,4 @@ const passportConfig = () => {
     })
   );
 };
-export default passportConfig;
+module.exports = passportConfig;
