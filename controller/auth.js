@@ -1,17 +1,17 @@
-const createAccount = require('../model/signup')
-const handleLogin = require('../model/login');
-const User = require('../model/user.js');
-const signUp = async (req, res, next) => {
+import createAccount from '../model/signup.js';
+import handleLogin from '../model/login.js';
+import User from '../model/user.js';
+export const signUp = async (req, res, next) => {
   const account = await createAccount(req.body.data);
   res.send(account);
 };
 
-const signIn = async (req, res, next) => {
+export const signIn = async (req, res, next) => {
   const login = await handleLogin(req.body.data);
   res.send(login);
 };
 
-const updateEmail = async (req, res, next) => {
+export const updateEmail = async (req, res, next) => {
   try {
     const {uid, newEmail, password} = req.body.data;
     const updateEmail = await User.updateEmail({uid, newEmail, password});
@@ -32,7 +32,7 @@ const updateEmail = async (req, res, next) => {
   }
 };
 
-const changePassword = async (req, res, next) => {
+export const changePassword = async (req, res, next) => {
   try {
     const { data } = req.body;
     const reqSub = await User.changePassword({ ...data });
@@ -47,7 +47,7 @@ const changePassword = async (req, res, next) => {
   }
 };
 
-const deleteAccountPermanent = async (req, res, next) => {
+export const deleteAccountPermanent = async (req, res, next) => {
   try {
     const { data } = req.body;
     const reqSub = await User.deleteAccount(data);
@@ -61,10 +61,3 @@ const deleteAccountPermanent = async (req, res, next) => {
     console.log(error);
   }
 };
-module.exports = {
-  deleteAccountPermanent,
-  changePassword,
-  updateEmail,
-  signIn,
-  signUp
-}

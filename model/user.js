@@ -1,12 +1,12 @@
-const db = require('../config/database.config.js');
-const fld = require('../db/fieldLists.js');
-const { validateEmail, validatePassword } = require('../utils/validateInput.js');
-const validateQueryParam = require('../utils/validateQueryParam.js');
-const Like = require('./liked.js');
-const Playlist = require('./playlist.js');
-const bcrypt = require('bcryptjs');
-const WatchList = require('./watchList.js');
-const { invalidQueryParamException } = require('./errors/handleErr.js');
+import db from '../config/database.config.js';
+import fld from '../db/fieldLists.js';
+import { validateEmail, validatePassword } from '../utils/validateInput.js';
+import validateQueryParam from '../utils/validateQueryParam.js';
+import Like from './liked.js';
+import Playlist from './playlist.js';
+import bcrypt from 'bcryptjs';
+import WatchList from './watchList.js';
+import { invalidQueryParamException } from './errors/handleErr.js';
 
 class HandleUser {
   /**
@@ -235,4 +235,4 @@ class HandleUser {
 }
 
 const User = new HandleUser();
-module.exports = User;
+export default User;

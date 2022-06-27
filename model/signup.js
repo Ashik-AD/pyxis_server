@@ -1,12 +1,12 @@
-const bcrypt = require('bcryptjs');
-const User = require('./user.js');
-const uuidV4 = require('uuid').v4;
-const {
+import bcrypt from 'bcryptjs';
+import User from './user.js';
+import { v4 as uuidV4 } from 'uuid';
+import {
   validateEmail,
   validatePassword,
   checkPattern,
   validateEmpty,
-} = require('../utils/validateInput.js');
+} from '../utils/validateInput.js';
 
 const genId = () => uuidV4().toString().replaceAll('-', '');
 const res = (status, msg, errorCode) => {
@@ -75,4 +75,4 @@ const SignUp = async ({ fullName, email, password, dob, country }) => {
   }
 };
 
-module.exports = SignUp;
+export default SignUp;

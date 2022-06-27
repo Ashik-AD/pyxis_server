@@ -1,9 +1,9 @@
-const db = require('../config/database.config.js');
-const validateQueryParam = require('../utils/validateQueryParam.js');
-const { invalidQueryParamException } = require('./errors/handleErr.js');
+import db from '../config/database.config.js';
+import validateQueryParam from '../utils/validateQueryParam.js';
+import { invalidQueryParamException } from './errors/handleErr.js';
 ('./error/handleErr.js');
-const fld = require('../db/fieldLists.js');
-const generateId = require('../utils/generateId.js');
+import fld from '../db/fieldLists.js';
+import generateId from '../utils/generateId.js';
 
 class HandlePlaylist {
   // Fetch all playlist
@@ -238,4 +238,4 @@ class HandlePlaylist {
 }
 
 const Playlist = new HandlePlaylist();
-module.exports= Playlist;
+export default Playlist;

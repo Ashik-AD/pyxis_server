@@ -1,4 +1,4 @@
-const fetch =  require('node-fetch');
+import fetch from 'node-fetch';
 
 class Country {
   constructor() {
@@ -30,4 +30,4 @@ class Country {
 }
 
 const CountryList = new Country();
-module.exports = CountryList;
+export default CountryList;

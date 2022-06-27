@@ -8,4 +8,4 @@ const validateQueryParam = (queryParam) => {
   }
   return false;
 };
-module.exports = validateQueryParam;
+export default validateQueryParam;

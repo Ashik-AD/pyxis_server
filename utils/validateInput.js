@@ -1,4 +1,4 @@
-const validateEmail = (email) => {
+export const validateEmail = (email) => {
   const reg =
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
@@ -8,14 +8,14 @@ const validateEmail = (email) => {
   return true;
 };
 
-const validateEmpty = (input) => {
+export const validateEmpty = (input) => {
   if (!input) {
     return true;
   }
   return false;
 };
 
-const checkPattern = (input) => {
+export const checkPattern = (input) => {
   const reg = /(\w+)$/g;
   if (!reg.test(input.toString())) {
     return false;
@@ -23,7 +23,7 @@ const checkPattern = (input) => {
   return true;
 };
 
-const validatePassword = (password) => {
+export const validatePassword = (password) => {
   const reg =
     /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}/g;
   if (!reg.test(password)) {
@@ -31,10 +31,3 @@ const validatePassword = (password) => {
   }
   return true;
 };
-
-module.exports ={
-  validateEmail,
-  validateEmpty,
-  validatePassword,
-  checkPattern
-}

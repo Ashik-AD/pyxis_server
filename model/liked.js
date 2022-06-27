@@ -1,7 +1,7 @@
-const fld = require('../db/fieldLists.js');
-const db = require('../config/database.config.js');
-const validateQueryParam = require('../utils/validateQueryParam.js');
-const invalidQueryParamException = require('./errors/handleErr.js');
+import fld from '../db/fieldLists.js';
+import db from '../config/database.config.js';
+import validateQueryParam from '../utils/validateQueryParam.js';
+import { invalidQueryParamException } from './errors/handleErr.js';
 
 class HandleLiked {
   
@@ -106,4 +106,4 @@ class HandleLiked {
 }
 
 const Like = new HandleLiked();
-module.exports = Like;
+export default Like;

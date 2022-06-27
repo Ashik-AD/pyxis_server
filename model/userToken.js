@@ -1,8 +1,8 @@
-const jwt = require('jwt-simple');
-const secret = require('dotenv');
+import jwt from 'jwt-simple';
+import secret from 'dotenv';
 secret.config();
 
-const generateToken = async (user) => {
+export const generateToken = async (user) => {
   try {
     return await jwt.encode({ sub: user.uid }, process.env.SECRET);
   }
@@ -10,4 +10,3 @@ const generateToken = async (user) => {
     console.log('Unable to generate auth token')
   }
 };
-module.exports = generateToken;

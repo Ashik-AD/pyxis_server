@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/Ashik-AD/pyxis_server.git"
+    "url": "git+ssh://git@github.com/Ashik-AD/pyxis.git"
   },
   "author": "Ashik Dhimal",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Ashik-AD/pyxis_server/issues"
+    "url": "https://github.com/Ashik-AD/pyxis/issues"
   },
-  "homepage": "https://github.com/Ashik-AD/pyxis_server#readme",
+  "homepage": "https://github.com/Ashik-AD/pyxis#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.1",

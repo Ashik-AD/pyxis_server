@@ -1,8 +1,8 @@
-const fld = require('../db/fieldLists.js');
-const db = require('../config/database.config.js');
-const validateQueryParam = require('../utils/validateQueryParam.js');
-const { invalidQueryParamException } = require('./errors/handleErr.js');
-const generateId = require('../utils/generateId.js');
+import fld from '../db/fieldLists.js';
+import db from '../config/database.config.js';
+import validateQueryParam from '../utils/validateQueryParam.js';
+import { invalidQueryParamException } from './errors/handleErr.js';
+import generateId from '../utils/generateId.js';
 
 class HandleWatchList {
   async all(uid) {
@@ -103,4 +103,4 @@ class HandleWatchList {
   }
 }
 const WatchList = new HandleWatchList();
-module.exports = WatchList;
+export default WatchList;

@@ -1,9 +1,9 @@
-const mdb =  require("../config/movieDb.config.js");
-const sortItem =  require("../utils/sortItem.js");
-const { forTv, extractCreditInfo } =  require('../utils/normalized.js');
-class Tv {
+import mdb from "../config/movieDb.config.js";
+import sortItem from "../utils/sortItem.js";
+import { forTv, extractCreditInfo } from '../utils/normalized.js';
 
-tvDetails = async (req, res, next) => {
+
+export const tvDetails = async (req, res, next) => {
     try {
       const { tv_id } = req.params;
       const details = await mdb.tvInfo({ id: tv_id});
@@ -19,7 +19,7 @@ tvDetails = async (req, res, next) => {
   };
   
   // Tv cast, crew
-  tvCredit = async (req, res, next) => {
+  export const tvCredit = async (req, res, next) => {
     try {
       const { tv_id, credit_type } = req.params;
       const details = await mdb.tvCredits({ id: tv_id });
@@ -31,7 +31,7 @@ tvDetails = async (req, res, next) => {
   };
   
   // Tv images
-  tvImages = async (req, res, next) => {
+  export const tvImages = async (req, res, next) => {
     try {
       const { tv_id } = req.params;
       const { backdrops, posters } = await mdb.tvImages({ id: tv_id });
@@ -44,7 +44,7 @@ tvDetails = async (req, res, next) => {
   };
   
   // Recommended Tv series
-  recommendedTv = async (req, res, next) => {
+  export const recommendedTv = async (req, res, next) => {
     try {
       const { tv_id } = req.params;
       const { results } = await mdb.tvRecommendations({ id: tv_id });
@@ -55,7 +55,7 @@ tvDetails = async (req, res, next) => {
   };
   
   // Similar Tv lists
-  similarTv = async (req, res, next) => {
+  export const similarTv = async (req, res, next) => {
     try {
       const { tv_id, page } = req.params;
       const { results } = await mdb.tvSimilar({ id: tv_id, page });
@@ -66,7 +66,7 @@ tvDetails = async (req, res, next) => {
   };
   
   // Tv videos
-  tvVideos = async (req, res, next) => {
+  export const tvVideos = async (req, res, next) => {
     try {
       const { tv_id } = req.params;
       const { results } = await mdb.tvVideos({ id: tv_id });
@@ -77,7 +77,7 @@ tvDetails = async (req, res, next) => {
   };
   
   // Top rated Tv
-  topRatedTv = async (req, res, next) => {
+  export const topRatedTv = async (req, res, next) => {
     try {
       const { page } = req.params;
       const results = await mdb.tvTopRated({ page });
@@ -89,7 +89,7 @@ tvDetails = async (req, res, next) => {
   };
   
   // Popular Tv
-  popularTv = async (req, res, next) => {
+  export const popularTv = async (req, res, next) => {
     try {
       const { page } = req.params;
       const { results } = await mdb.tvPopular({ page });
@@ -99,7 +99,7 @@ tvDetails = async (req, res, next) => {
     }
   };
   // Tv on the air
-  tvOnTheAir = async (req, res, next) => {
+  export const tvOnTheAir = async (req, res, next) => {
     try {
       const { page } = req.params;
       const { results } = await mdb.tvOnTheAir({ page });
@@ -110,7 +110,7 @@ tvDetails = async (req, res, next) => {
   };
   
   // Tv keywords
-  tvKeywords = async (req, res, next) => {
+  export const tvKeywords = async (req, res, next) => {
     try {
       const { tv_id } = req.params;
       const { results } = await mdb.tvKeywords({ id: tv_id });
@@ -120,7 +120,7 @@ tvDetails = async (req, res, next) => {
     }
   };
   
-  tvSeasons = async (req, res, next) => {
+  export const tvSeasons = async (req, res, next) => {
     try {
       const { tv_id, season_id } = req.params;
       const fs = await mdb.seasonInfo({ id: tv_id, season_number: season_id });
@@ -132,7 +132,7 @@ tvDetails = async (req, res, next) => {
   };
   
   // tv social/official links
-  tvExternalLinks = async (req, res, next) => {
+  export const tvExternalLinks = async (req, res, next) => {
     try {
       const { tv_id } = req.params;
       const ids = await mdb.tvExternalIds({ id: tv_id });
@@ -143,7 +143,7 @@ tvDetails = async (req, res, next) => {
   };
   
   // Cast from episode
-  episodeCast = async (req, res, next) => {
+  export const episodeCast = async (req, res, next) => {
     try {
       const { tv_id, se_num, ep_num } = req.params;
       const { cast } = await mdb.episodeCredits({
@@ -156,6 +156,4 @@ tvDetails = async (req, res, next) => {
       res.status(400).send(err.message);
     }
   };
-}
-const tv = new Tv();
-module.exports = tv;
+  

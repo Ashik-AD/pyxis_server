@@ -19,4 +19,4 @@ const sortItem = (items, key, dir = 'asc') => {
     }
     return sortedItem;
 }
-module.exports = sortItem
+export default sortItem;

@@ -1,5 +1,5 @@
-const db = require('../config/database.config.js');
-const fld = require('./fieldLists.js');
+import db from '../config/database.config.js';
+import fld from './fieldLists.js';
 
 const Schema = {
   user: async () => {
@@ -33,4 +33,4 @@ const Schema = {
   },
 };
 
-module.exports = Schema;
+export default Schema;

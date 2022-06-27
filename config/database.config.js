@@ -1,7 +1,7 @@
-const dotenv =  require('dotenv');
+import dotenv from 'dotenv';
 dotenv.config();
 
-const postgres = require('pg');
+import postgres from 'pg';
 const {Pool} = postgres;
 const pool = new Pool({connectionString: process.env.DATABASE_URL});
-module.exports =  pool;
+export default pool;
