@@ -16,5 +16,5 @@ app.use(express.static('public'));
 // routes(app);
 
 const server = http.createServer(app);
-const PORT = process.env.port || 9000;
+const PORT = process.env.PORT || 9000;
 server.listen(PORT, console.log(`Server is running on Port: ${PORT}`));
