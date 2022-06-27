@@ -1,3 +1,3 @@
-const { MovieDb } = require('moviedb-promise');
+import  {MovieDb}  from 'moviedb-promise';
 const movieDb = new MovieDb(process.env.API_KEY);
-module.exports= movieDb;
+export default movieDb;
