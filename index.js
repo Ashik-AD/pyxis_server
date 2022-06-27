@@ -13,7 +13,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
-routes(app);
+// routes(app);
 
 const server = http.createServer(app);
 const PORT = process.env.port || 9000;
