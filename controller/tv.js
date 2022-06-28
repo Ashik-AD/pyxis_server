@@ -70,7 +70,7 @@ export const tvDetails = async (req, res, next) => {
     try {
       const { tv_id } = req.params;
       const { results } = await mdb.tvVideos({ id: tv_id });
-      res.send({ results });
+      res.send({ results: results.splice(0, 6) });
     } catch (err) {
       res.status(400).send('Something went wrong');
     }

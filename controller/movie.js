@@ -104,7 +104,7 @@ export const movieVideo = async (req, res, next) => {
   try {
     const { movie_id } = req.params;
     const { id, results } = await mdb.movieVideos({ id: movie_id });
-    res.send({ id, results });
+    res.send({ id, results: results.splice(0,6) });
   } catch (err) {
     console.log(err.response.data);
     res.status(400).send('Something went wrong');
